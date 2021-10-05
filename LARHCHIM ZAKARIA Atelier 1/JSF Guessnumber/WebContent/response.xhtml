@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1" http-equiv="X-UA-Conpatible" />
+    <h:outputStylesheet library="css" name="bootstrap.min.css" />
+    <title>JSF Guessnumber</title>
+    <style type="text/css">
+        .responseTextCSS {
+            font-size: xx-large;
+    		padding: 18px;
+        }
+    </style>
+</h:head>
+<h:body>
+    <center><h2>JSF Guess Number Example</h2></center>
+    <div class="container">
+        <div class="row">
+            <div class="form_bg">
+                <h:form id="responseForm">                
+                    <div class="form-group">
+                        <h:graphicImage id="waveImg" library="images" name="wave.med.gif" />
+                        <h:outputText styleClass="responseTextCSS" id="result" value="#{UserNumberBean.response}"/>
+                    </div>
+                    <div id="successBtn">
+                        <h:commandButton rendered="#{UserNumberBean.btnValue}" id="errBack" value="Back" action="error" styleClass="btn btn-success" />                        
+                    </div>  
+                    <div id="errorBtn">                        
+                        <h:commandButton rendered="#{!UserNumberBean.btnValue}" id="successBack" value="Back" action="success" styleClass="btn btn-danger" />
+                    </div>                   
+                </h:form>
+            </div>
+        </div>
+    </div>
+</h:body>
+</html>
