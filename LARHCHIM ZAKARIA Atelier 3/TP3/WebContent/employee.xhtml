@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui">      
+<h:head>
+  <title>Employee Information System</title>
+</h:head>
+
+<h:body>
+  <h:form>
+     
+      <p:tabView>
+            <p:tab title="Personal Informations">
+               <h:panelGrid columns="1" >
+               
+                  <table>
+       
+
+      <tr>
+        <td>
+          First Name:<h:inputText label="Employee Name" 
+          id="ename"
+                        value="#{employeeBean.empName}" 
+                       required="true"/>
+                       <h:message for="ename" style="color: red"/>
+        </td>
+      </tr>
+      
+  
+
+      <tr>
+        <td>
+          <h:selectOneRadio label="Gender" 
+                            id="gender" value="#{employeeBean.gender}" required="true">
+            <f:selectItem itemLabel="Male" itemValue="male" />
+            <f:selectItem itemLabel="Female" itemValue="female" />
+          </h:selectOneRadio>
+        <h:message for="gender" style="color: red"/>             
+        </td>
+      </tr>
+      
+      <tr>
+        <td>
+          Date of Birth(mm-dd-yy):<h:inputText label="Date of Birth"
+                       id="dob" value="#{employeeBean.dob}" required="true">
+            <f:convertDateTime pattern="MM-dd-yy" />
+          </h:inputText> 
+          <h:message for="dob" style="color: red"/>
+        </td>
+      </tr>
+
+ <tr>
+        <td>
+      <h:selectOneRadio label="Marital Status" 
+                       id="mstatus" value="#{employeeBean.maritalStatus}" required="true">
+           <f:selectItem itemLabel="Single" itemValue="single" />
+           <f:selectItem itemLabel="Married" itemValue="married" />
+          </h:selectOneRadio>
+          <h:message for="mstatus" style="color: red"/>
+        </td>
+      </tr>
+  
+      
+            
+    
+      
+      <tr>
+        <td>
+          Department:<h:selectOneMenu label="Department"
+                           value="#{employeeBean.department}">
+            <f:selectItem itemLabel="Accounts" itemValue="accounts" />
+            <f:selectItem itemLabel="Sales" itemValue="sales" />
+            <f:selectItem itemLabel="Marketing" itemValue="marketing" />
+          </h:selectOneMenu>
+        </td>
+      </tr>
+      
+      
+		<tr>
+        <td>
+        Is Permanent?:<h:selectBooleanCheckbox value="#{employeeBean.employeeType}" />
+        </td>
+      </tr>
+      
+    </table>
+                 
+               </h:panelGrid>
+            </p:tab>
+            <p:tab title="Phone Numbers">
+               <h:panelGrid columns="3" cellpadding="10">
+               
+                <table>
+        
+      
+      <tr>
+        <td>
+          Home:<h:inputText label="Mobile Number"
+                       id="mobileno" value="#{employeeBean.home}" required="true">
+          </h:inputText>
+          <h:message for="mobileno" style="color: red"/>
+        </td>
+      </tr>
+      
+        <tr>
+        <td>
+          Mobile:<h:inputText label="Mobile Number"
+                       id="mobileno3" value="#{employeeBean.mobileNumber}" required="true">
+          </h:inputText>
+          <h:message for="mobileno3" style="color: red"/>
+        </td>
+      </tr>
+      
+        <tr>
+        <td>
+          Work:<h:inputText label="Mobile Number"
+                       id="mobileno2" value="#{employeeBean.work}" required="true">
+          </h:inputText>
+          <h:message for="mobileno2" style="color: red"/>
+        </td>
+      </tr>
+      
+            
+    
+      
+
+      
+    </table>
+             
+               </h:panelGrid>
+            </p:tab>
+             <p:tab title="Adress">
+               <h:panelGrid columns="1">
+                
+                    
+      <tr>
+        <td>
+          Address:<h:inputText label="Address"
+                       id="address" value="#{employeeBean.address}"
+                       required="true"/>
+          <h:message for="address" style="color: red"/>
+        </td>
+      </tr>
+      
+      <tr>
+        <td>
+          Email:<h:inputText label="Email Address"
+                       id="email" value="#{employeeBean.emailAddress}" required="true"
+                       validator="#{employeeBean.validateEmail}"/>
+          <h:message for="email" style="color: red"/>
+        </td>
+      </tr>
+      
+       
+          <tr>
+        <td>
+          State:<h:selectOneMenu label="Designation"
+                           value="#{employeeBean.designation}">
+            <f:selectItem itemLabel="Oklahuma" itemValue="Oklahuma" />
+            <f:selectItem itemLabel="New York" itemValue="New York" />
+            <f:selectItem itemLabel="New jersey" itemValue="New jersey" />
+          </h:selectOneMenu>
+        </td>
+      </tr>
+                
+                
+               </h:panelGrid>
+            </p:tab>
+            <p:tab title="Confirmation">
+               <h:panelGrid columns="2" cellpadding="10">
+                  <h:outputText value="To Confirm your Registration please click the button below Submit button" />
+                      <p><h:commandButton value="Submit" action="confirm" /></p>
+                  
+               </h:panelGrid>
+            </p:tab>
+         </p:tabView>
+  </h:form>
+</h:body>
+</html>
